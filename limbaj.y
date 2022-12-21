@@ -22,10 +22,14 @@ declaratii :  declaratie ';'
 	   | declaratii declaratie ';'
 	   ;
 declaratie : TIP ID 
-           | TIP ID ASSIGN EXPRESIE           
-           | TIP ID '(' lista_param ')'
+           | TIP ID ASSIGN EXPRESIE          
+           | TIP ID ASSIGN ID '.' ID  
            | TIP ID '(' ')'
+           | TIP ID '(' lista_param ')'
+           | TIP ID '(' lista_param ')' '{' declaratii '}'
            | CLASS ID '{''}'
+           | CLASS ID '{' declaratii '}'
+
 
            ;
 lista_param : param
@@ -45,21 +49,36 @@ list :  statement ';'
      ;
 
 /* instructiune */
-statement: ID ASSIGN ID
-         | ID ASSIGN NR  		 
+statement: 
+         | ID ASSIGN EXPRESIE
+         | ID ASSIGN ID '.' ID 
+         | ID '.' ID ASSIGN EXPRESIE
+         | ID '.' ID ASSIGN ID '.' ID
          | ID '(' lista_apel ')'
+         | 
          ;
         
 lista_apel : NR
            | lista_apel ',' NR
            ;
 EXPRESIE : NR
+          | FLT 
           | ID 
           | EXPRESIE ADD EXPRESIE 
           | EXPRESIE SUBTRACT EXPRESIE
           | EXPRESIE MULTIPLY EXPRESIE
           | EXPRESIE DIVIDE EXPRESIE
+          | EXPRESIE EQ EXPRESIE
+          | EXPRESIE NEQ EXPRESIE
+          | EXPRESIE GT EXPRESIE
+          | EXPRESIE GE EXPRESIE
+          | EXPRESIE LT EXPRESIE
+          | EXPRESIE LE EXPRESIE
+          | EXPRESIE OR EXPRESIE
+          | EXPRESIE AND EXPRESIE
+          | NOT EXPRESIE 
           | '(' EXPRESIE ')'
+          ;
 %%
 int yyerror(char * s){
 printf("eroare: %s la linia:%d\n",s,yylineno);
