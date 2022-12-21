@@ -2,9 +2,14 @@ int @x;
 int @z;
 float @b;
 int @df:=( @b + @x ) * @z;
-class @b {};
+class @b {
+    int @ABC;
+    float @STRING;
+};
+int @a:=@b.@ABC;
 int @functie (char @c, bool @d);
 begin_progr
+
 @x:=5;
 @b:=@x;
 end_progr
