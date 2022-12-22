@@ -13,7 +13,7 @@ while(5)
 {
     @b.@ABC:=5;
 };
-
+@functie(5,@functie(5));
 @x:=15;
 @b:=@x;
 end_progr
