@@ -60,8 +60,10 @@ statement:
          | WHILE '(' EXPRESIE ')' '{' list '}'
          ;
         
-lista_apel : NR
-           | lista_apel ',' NR
+lista_apel : EXPRESIE
+           | ID  '(' lista_apel ')'
+           | lista_apel ',' EXPRESIE
+           | lista_apel ',' ID '(' lista_apel ')'
            ;
 EXPRESIE : NR
           | FLT 
