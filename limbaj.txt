@@ -12,6 +12,10 @@ begin_progr
 while(5)
 {
     @b.@ABC:=5;
+    if ( 5 > 4) 
+    {
+        @b.@STRING:=@x*@z;
+    };
 };
 @functie(5,@functie(5));
 @x:=15;
