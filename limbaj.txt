@@ -1,7 +1,7 @@
 int @x;
 int @z;
-float @b;
-int @df:=( @b + @x ) * @z;
+float @o;
+int @df:=( @o + @x ) * @z;
 class @b {
     int @ABC;
     float @STRING;
@@ -9,7 +9,11 @@ class @b {
 int @a:=@b.@ABC;
 int @functie (char @c, bool @d);
 begin_progr
+while(5)
+{
+    @b.@ABC:=5;
+};
 
-@x:=5;
+@x:=15;
 @b:=@x;
 end_progr

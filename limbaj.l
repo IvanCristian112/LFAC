@@ -4,12 +4,12 @@
 %}
 %option noyywrap
 %%
-"int" {return INT;}
+"int"   {return INT;}
 "float" {return FLOAT;}
-"char" {return CHAR;}
+"char"  {return CHAR;}
 "string" {return STRING;}
-"bool" {return BOOL;}
-"+"    {return ADD; }
+"bool"  {return BOOL;}
+"+"     {return ADD; }
 "-"     {return SUBTRACT;}
 "*"     {return MULTIPLY;}
 "/"     {return DIVIDE;}
@@ -24,6 +24,11 @@
 "const" {return CONSTANT;}
 "!"     {return NOT;}
 "class" {return CLASS;}
+"if"    {return IF;}
+"else"  {return ELSE;}
+"while" {return WHILE;}
+"true"  {return TRUE;}
+"false" {return FALSE;}
 "begin_progr" {return BGIN;}
 "end_progr" {return END;}
 @[_a-zA-Z][_a-zA-Z0-9]* {return ID;}

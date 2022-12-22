@@ -4,7 +4,7 @@ extern FILE* yyin;
 extern char* yytext;
 extern int yylineno;
 %}
-%token ID INT FLOAT CHAR STRING BOOL CONSTANT BGIN END ASSIGN NR CLASS FLT  
+%token ID INT FLOAT CHAR STRING BOOL CONSTANT BGIN END ASSIGN NR CLASS FLT IF ELSE WHILE TRUE FALSE
 %left OR
 %left AND
 %left EQ NEQ
@@ -55,7 +55,9 @@ statement:
          | ID '.' ID ASSIGN EXPRESIE
          | ID '.' ID ASSIGN ID '.' ID
          | ID '(' lista_apel ')'
-         | 
+         | IF '(' EXPRESIE ')' '{' list '}'
+         | IF '(' EXPRESIE ')' '{' list '}' ELSE '{' list '}'
+         | WHILE '(' EXPRESIE ')' '{' list '}'
          ;
         
 lista_apel : NR
@@ -79,6 +81,7 @@ EXPRESIE : NR
           | NOT EXPRESIE 
           | '(' EXPRESIE ')'
           ;
+
 %%
 int yyerror(char * s){
 printf("eroare: %s la linia:%d\n",s,yylineno);
