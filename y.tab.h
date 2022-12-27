@@ -67,19 +67,22 @@ extern int yydebug;
     WHILE = 273,
     TRUE = 274,
     FALSE = 275,
-    OR = 276,
-    AND = 277,
-    EQ = 278,
-    NEQ = 279,
-    GT = 280,
-    GE = 281,
-    LT = 282,
-    LE = 283,
-    NOT = 284,
-    ADD = 285,
-    SUBTRACT = 286,
-    MULTIPLY = 287,
-    DIVIDE = 288
+    CHARACTER = 276,
+    STR = 277,
+    ARRAY = 278,
+    OR = 279,
+    AND = 280,
+    EQ = 281,
+    NEQ = 282,
+    GT = 283,
+    GE = 284,
+    LT = 285,
+    LE = 286,
+    NOT = 287,
+    ADD = 288,
+    SUBTRACT = 289,
+    MULTIPLY = 290,
+    DIVIDE = 291
   };
 #endif
 /* Tokens.  */
@@ -101,19 +104,22 @@ extern int yydebug;
 #define WHILE 273
 #define TRUE 274
 #define FALSE 275
-#define OR 276
-#define AND 277
-#define EQ 278
-#define NEQ 279
-#define GT 280
-#define GE 281
-#define LT 282
-#define LE 283
-#define NOT 284
-#define ADD 285
-#define SUBTRACT 286
-#define MULTIPLY 287
-#define DIVIDE 288
+#define CHARACTER 276
+#define STR 277
+#define ARRAY 278
+#define OR 279
+#define AND 280
+#define EQ 281
+#define NEQ 282
+#define GT 283
+#define GE 284
+#define LT 285
+#define LE 286
+#define NOT 287
+#define ADD 288
+#define SUBTRACT 289
+#define MULTIPLY 290
+#define DIVIDE 291
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

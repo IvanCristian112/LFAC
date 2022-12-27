@@ -29,10 +29,13 @@
 "while" {return WHILE;}
 "true"  {return TRUE;}
 "false" {return FALSE;}
+\[[1-9][0-9]*\] {return ARRAY;}
 "begin_progr" {return BGIN;}
 "end_progr" {return END;}
 @[_a-zA-Z][_a-zA-Z0-9]* {return ID;}
 ":=" {return ASSIGN;}
+\"[a-zA-Z]\" {return CHARACTER;}
+\"[a-zA-z]+\" {return STR;}
 [1-9][0-9]*|0 {return NR;}
 [1-9][0-9]*|0.[0-9]+ {return FLT;}
 [ \t] ;

@@ -4,7 +4,7 @@ extern FILE* yyin;
 extern char* yytext;
 extern int yylineno;
 %}
-%token ID INT FLOAT CHAR STRING BOOL CONSTANT BGIN END ASSIGN NR CLASS FLT IF ELSE WHILE TRUE FALSE
+%token ID INT FLOAT CHAR STRING BOOL CONSTANT BGIN END ASSIGN NR CLASS FLT IF ELSE WHILE TRUE FALSE CHARACTER STR ARRAY
 %left OR
 %left AND
 %left EQ NEQ
@@ -13,6 +13,7 @@ extern int yylineno;
 %left ADD SUBTRACT
 %left MULTIPLY DIVIDE
  
+
 %start progr
 %%
 progr: declaratii bloc {printf("program corect sintactic\n");}
@@ -22,6 +23,7 @@ declaratii :  declaratie ';'
 	   | declaratii declaratie ';'
 	   ;
 declaratie : TIP ID 
+           | TIP ID ARRAY  
            | TIP ID ASSIGN EXPRESIE          
            | TIP ID ASSIGN ID '.' ID  
            | TIP ID '(' ')'
@@ -37,6 +39,7 @@ lista_param : param
             ;
 TIP: INT | FLOAT | BOOL | CHAR | STRING
 param : TIP ID
+          | TIP ID ARRAY
       ; 
       
 /* bloc */
@@ -51,7 +54,9 @@ list :  statement ';'
 /* instructiune */
 statement: 
          | ID ASSIGN EXPRESIE
+         | ID ARRAY ASSIGN EXPRESIE 
          | ID ASSIGN ID '.' ID 
+         | ID ARRAY ASSIGN ID '.' ID
          | ID '.' ID ASSIGN EXPRESIE
          | ID '.' ID ASSIGN ID '.' ID
          | ID '(' lista_apel ')'
@@ -68,6 +73,10 @@ lista_apel : EXPRESIE
 EXPRESIE : NR
           | FLT 
           | ID 
+          | ID ARRAY
+          | STR
+          | CHARACTER
+          | ID '[' NR ']'
           | EXPRESIE ADD EXPRESIE 
           | EXPRESIE SUBTRACT EXPRESIE
           | EXPRESIE MULTIPLY EXPRESIE

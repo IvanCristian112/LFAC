@@ -1,10 +1,15 @@
 int @x;
 int @z;
 float @o;
+char @m:="a";
+string @q:="abc";
+int @vector[5];
+int @calcul:=(@vector[3]+@vector[2])/@vector[1];
 int @df:=( @o + @x ) * @z;
 class @b {
     int @ABC;
     float @STRING;
+    float @container[100];
 };
 int @a:=@b.@ABC;
 int @functie (char @c, bool @d);
@@ -17,6 +22,7 @@ while(5)
         @b.@STRING:=@x*@z;
     };
 };
+@vector[4]:=@x*@z;
 @functie(5,@functie(5));
 @x:=15;
 @b:=@x;
