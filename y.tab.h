@@ -56,33 +56,33 @@ extern int yydebug;
     STRING = 262,
     BOOL = 263,
     CONSTANT = 264,
-    BGIN = 265,
-    END = 266,
-    ASSIGN = 267,
-    NR = 268,
-    CLASS = 269,
-    FLT = 270,
-    IF = 271,
-    ELSE = 272,
-    WHILE = 273,
-    TRUE = 274,
-    FALSE = 275,
-    CHARACTER = 276,
-    STR = 277,
-    ARRAY = 278,
-    OR = 279,
-    AND = 280,
-    EQ = 281,
-    NEQ = 282,
-    GT = 283,
-    GE = 284,
-    LT = 285,
-    LE = 286,
-    NOT = 287,
-    ADD = 288,
-    SUBTRACT = 289,
-    MULTIPLY = 290,
-    DIVIDE = 291
+    RETURN = 265,
+    ASSIGN = 266,
+    NR = 267,
+    CLASS = 268,
+    FLT = 269,
+    IF = 270,
+    ELSE = 271,
+    WHILE = 272,
+    TRUE = 273,
+    FALSE = 274,
+    CHARACTER = 275,
+    STR = 276,
+    ARRAY = 277,
+    MAIN = 278,
+    ADD = 279,
+    SUBTRACT = 280,
+    MULTIPLY = 281,
+    DIVIDE = 282,
+    AND = 283,
+    OR = 284,
+    GT = 285,
+    GE = 286,
+    LT = 287,
+    LE = 288,
+    EQ = 289,
+    NEQ = 290,
+    NOT = 291
   };
 #endif
 /* Tokens.  */
@@ -93,33 +93,33 @@ extern int yydebug;
 #define STRING 262
 #define BOOL 263
 #define CONSTANT 264
-#define BGIN 265
-#define END 266
-#define ASSIGN 267
-#define NR 268
-#define CLASS 269
-#define FLT 270
-#define IF 271
-#define ELSE 272
-#define WHILE 273
-#define TRUE 274
-#define FALSE 275
-#define CHARACTER 276
-#define STR 277
-#define ARRAY 278
-#define OR 279
-#define AND 280
-#define EQ 281
-#define NEQ 282
-#define GT 283
-#define GE 284
-#define LT 285
-#define LE 286
-#define NOT 287
-#define ADD 288
-#define SUBTRACT 289
-#define MULTIPLY 290
-#define DIVIDE 291
+#define RETURN 265
+#define ASSIGN 266
+#define NR 267
+#define CLASS 268
+#define FLT 269
+#define IF 270
+#define ELSE 271
+#define WHILE 272
+#define TRUE 273
+#define FALSE 274
+#define CHARACTER 275
+#define STR 276
+#define ARRAY 277
+#define MAIN 278
+#define ADD 279
+#define SUBTRACT 280
+#define MULTIPLY 281
+#define DIVIDE 282
+#define AND 283
+#define OR 284
+#define GT 285
+#define GE 286
+#define LT 287
+#define LE 288
+#define EQ 289
+#define NEQ 290
+#define NOT 291
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

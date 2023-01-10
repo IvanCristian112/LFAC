@@ -4,6 +4,8 @@
 %}
 %option noyywrap
 %%
+
+"main ()"  {return MAIN;}
 "int"   {return INT;}
 "float" {return FLOAT;}
 "char"  {return CHAR;}
@@ -30,14 +32,13 @@
 "true"  {return TRUE;}
 "false" {return FALSE;}
 \[[1-9][0-9]*\] {return ARRAY;}
-"begin_progr" {return BGIN;}
-"end_progr" {return END;}
+"return" {return RETURN;}
 @[_a-zA-Z][_a-zA-Z0-9]* {return ID;}
 ":=" {return ASSIGN;}
 \"[a-zA-Z]\" {return CHARACTER;}
 \"[a-zA-z]+\" {return STR;}
 [1-9][0-9]*|0 {return NR;}
-[1-9][0-9]*|0.[0-9]+ {return FLT;}
+([0-9]*[.])?[0-9]+ {return FLT;}
 [ \t] ;
 \n {yylineno++;}
 . {return yytext[0];}
