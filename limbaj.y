@@ -1,10 +1,21 @@
 %{
 #include <stdio.h>
+#include <stdlib.h>
+#include "symbol_table.h"
 extern FILE* yyin;
 extern char* yytext;
 extern int yylineno;
+struct symbol_variables symbol_table[1000];
+int nr_variabile=0;
 %}
-%token ID INT FLOAT CHAR STRING BOOL CONSTANT RETURN  ASSIGN NR CLASS FLT IF ELSE WHILE TRUE FALSE CHARACTER STR ARRAY MAIN
+%union {
+     char* string_value;
+}
+%token <string_value> ID
+%token <string_value> TIP 
+%token CONSTANT RETURN  ASSIGN NR CLASS FLT IF BOOL
+%token ELSE WHILE TRUE FALSE CHARACTER STR ARRAY MAIN
+
 %right IF ELSE
 %left '(' ')'
 %left ADD SUBTRACT
@@ -28,9 +39,32 @@ variable_declarations : variable_declaration ';'
 function_declarations : function_declaration ';'
                     | function_declarations  function_declaration ';'
                     ;                    
-variable_declaration : TIP ID
-                    | TIP ID ARRAY 
+variable_declaration : TIP ID 
+
+                   {
+                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                         {
+                              nr_variabile++;
+                         }
+                         else printf("Variabila exista deja\n");
+                    } 
+               
+                    | TIP ID ARRAY  
+                    {                  
+                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                         {
+                              nr_variabile++;
+                         }
+                         else printf("Variabila exista deja\n");
+                    } 
                     | TIP ID ASSIGN expresie
+                    {
+                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                         {
+                              nr_variabile++;
+                         }
+                         else printf("Variabila %s exista deja. Linia: %d\n", $2,yylineno);
+                    } 
                     ;
 
 function_declaration : TIP ID '(' ')'
@@ -49,10 +83,7 @@ main : MAIN '{'  '}'
 
 lista_param : lista_param ','  TIP ID
             | TIP ID
-            ;
-TIP : INT | FLOAT | BOOL | CHAR | STRING 
-          ;
-
+            ;            
       
 
      
@@ -84,7 +115,6 @@ expresie : NR
           | FLT 
           | STR
           | CHARACTER
-          | BOOL
           | ID 
           | ID ARRAY
           | expresie ADD expresie 
@@ -109,6 +139,17 @@ printf("eroare: %s la linia:%d\n",s,yylineno);
 }
 
 int main(int argc, char** argv){
-yyin=fopen(argv[1],"r");
-yyparse();
+
+     yyin=fopen(argv[1],"r");
+     yyparse();
+     FILE* fp=fopen("symbol_table.txt","w");
+     for(int i=0; i<nr_variabile;i++)
+     {
+          fprintf(fp,"Nume: %s\n",symbol_table[i].id_name);
+          fprintf(fp,"Tip: %s\n", symbol_table[i].data_type);
+          fprintf(fp,"\n");
+     }
+
+
+     
 } 

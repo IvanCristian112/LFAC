@@ -50,80 +50,83 @@ extern int yydebug;
   enum yytokentype
   {
     ID = 258,
-    INT = 259,
-    FLOAT = 260,
-    CHAR = 261,
-    STRING = 262,
-    BOOL = 263,
-    CONSTANT = 264,
-    RETURN = 265,
-    ASSIGN = 266,
-    NR = 267,
-    CLASS = 268,
-    FLT = 269,
-    IF = 270,
-    ELSE = 271,
-    WHILE = 272,
-    TRUE = 273,
-    FALSE = 274,
-    CHARACTER = 275,
-    STR = 276,
-    ARRAY = 277,
-    MAIN = 278,
-    ADD = 279,
-    SUBTRACT = 280,
-    MULTIPLY = 281,
-    DIVIDE = 282,
-    AND = 283,
-    OR = 284,
-    GT = 285,
-    GE = 286,
-    LT = 287,
-    LE = 288,
-    EQ = 289,
-    NEQ = 290,
-    NOT = 291
+    TIP = 259,
+    CONSTANT = 260,
+    RETURN = 261,
+    ASSIGN = 262,
+    NR = 263,
+    CLASS = 264,
+    FLT = 265,
+    IF = 266,
+    BOOL = 267,
+    ELSE = 268,
+    WHILE = 269,
+    TRUE = 270,
+    FALSE = 271,
+    CHARACTER = 272,
+    STR = 273,
+    ARRAY = 274,
+    MAIN = 275,
+    ADD = 276,
+    SUBTRACT = 277,
+    MULTIPLY = 278,
+    DIVIDE = 279,
+    AND = 280,
+    OR = 281,
+    GT = 282,
+    GE = 283,
+    LT = 284,
+    LE = 285,
+    EQ = 286,
+    NEQ = 287,
+    NOT = 288
   };
 #endif
 /* Tokens.  */
 #define ID 258
-#define INT 259
-#define FLOAT 260
-#define CHAR 261
-#define STRING 262
-#define BOOL 263
-#define CONSTANT 264
-#define RETURN 265
-#define ASSIGN 266
-#define NR 267
-#define CLASS 268
-#define FLT 269
-#define IF 270
-#define ELSE 271
-#define WHILE 272
-#define TRUE 273
-#define FALSE 274
-#define CHARACTER 275
-#define STR 276
-#define ARRAY 277
-#define MAIN 278
-#define ADD 279
-#define SUBTRACT 280
-#define MULTIPLY 281
-#define DIVIDE 282
-#define AND 283
-#define OR 284
-#define GT 285
-#define GE 286
-#define LT 287
-#define LE 288
-#define EQ 289
-#define NEQ 290
-#define NOT 291
+#define TIP 259
+#define CONSTANT 260
+#define RETURN 261
+#define ASSIGN 262
+#define NR 263
+#define CLASS 264
+#define FLT 265
+#define IF 266
+#define BOOL 267
+#define ELSE 268
+#define WHILE 269
+#define TRUE 270
+#define FALSE 271
+#define CHARACTER 272
+#define STR 273
+#define ARRAY 274
+#define MAIN 275
+#define ADD 276
+#define SUBTRACT 277
+#define MULTIPLY 278
+#define DIVIDE 279
+#define AND 280
+#define OR 281
+#define GT 282
+#define GE 283
+#define LT 284
+#define LE 285
+#define EQ 286
+#define NEQ 287
+#define NOT 288
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 11 "limbaj.y"
+
+     char* string_value;
+
+#line 127 "y.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

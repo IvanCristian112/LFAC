@@ -1,3 +1,4 @@
+
 %{
 #include <stdio.h>
 #include "y.tab.h"
@@ -6,11 +7,8 @@
 %%
 
 "main ()"  {return MAIN;}
-"int"   {return INT;}
-"float" {return FLOAT;}
-"char"  {return CHAR;}
-"string" {return STRING;}
-"bool"  {return BOOL;}
+"int"|"float"|"char"|"string"  {yylval.string_value=strdup(yytext); return TIP;}
+ "bool"  {return BOOL;}
 "+"     {return ADD; }
 "-"     {return SUBTRACT;}
 "*"     {return MULTIPLY;}
@@ -33,14 +31,12 @@
 "false" {return FALSE;}
 \[[1-9][0-9]*\] {return ARRAY;}
 "return" {return RETURN;}
-@[_a-zA-Z][_a-zA-Z0-9]* {return ID;}
+@[_a-zA-Z][_a-zA-Z0-9]* {yylval.string_value=strdup(yytext); return ID;}
 ":=" {return ASSIGN;}
-\"[a-zA-Z]\" {return CHARACTER;}
-\"[a-zA-z]+\" {return STR;}
-[1-9][0-9]*|0 {return NR;}
-([0-9]*[.])?[0-9]+ {return FLT;}
+\"[a-zA-Z]\" {yylval.string_value=strdup(yytext); return CHARACTER;}
+\"[a-zA-z]+\" {yylval.string_value=strdup(yytext); return STR;}
+[1-9][0-9]*|0 {yylval.string_value=strdup(yytext); return NR;}
+([0-9]*[.])?[0-9]+ {yylval.string_value=strdup(yytext); return FLT;}
 [ \t] ;
 \n {yylineno++;}
 . {return yytext[0];}
-
- 
