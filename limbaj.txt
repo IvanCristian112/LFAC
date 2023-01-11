@@ -1,5 +1,5 @@
 float @x;
-int @b;
+int @x;
 int @abc543;
 int @x1:=4;
 int @x2;
@@ -16,14 +16,14 @@ int @testFunction(int @x, float @z) {
   return 1;
 };
 int @testFunction(int @x, int @z) {
-  int @abc:="abc";
-  @abc:="abcd";
+  int @abd:="abc";
+  @abd:="abcd";
   return 1;
 };
 
 int @test(int @param1, int @param2, float @f) {
-   int @abc:="abc";
-  @abc:="abcd";
+   int @abf:="abc";
+  @abf:="abcd";
   return 1;
 };
 

@@ -50,7 +50,7 @@ variable_declaration : TIP ID
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila exista deja\n");
+                         else yyerror("Variabila exista deja");
                     } 
                
                     | TIP ID ARRAY  
@@ -59,7 +59,7 @@ variable_declaration : TIP ID
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila exista deja\n");
+                         else yyerror("Variabila exista deja");
                     } 
                     | TIP ID ASSIGN expresie
                     {
@@ -67,7 +67,7 @@ variable_declaration : TIP ID
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila %s exista deja. Linia: %d\n", $2,yylineno);
+                         else yyerror("Variabila %s exista deja. Linia: %d\n", $2,yylineno);
                     } 
                     ;
 
@@ -135,6 +135,8 @@ list :  statement ';'
 /* instructiune */
 statement : 
          | ID ASSIGN expresie
+         {
+         }
          | ID ARRAY ASSIGN expresie 
          | ID ASSIGN ID '.' ID 
          | ID ARRAY ASSIGN ID '.' ID

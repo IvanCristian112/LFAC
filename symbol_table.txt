@@ -1,7 +1,7 @@
 Nume: @x
 Tip: float
 
-Nume: @b
+Nume: @x
 Tip: int
 
 Nume: @abc543
@@ -26,6 +26,12 @@ Nume: @f1
 Tip: float
 
 Nume: @abc
+Tip: int
+
+Nume: @abd
+Tip: int
+
+Nume: @abf
 Tip: int
 
 Nume: @submesaj

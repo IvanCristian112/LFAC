@@ -17,12 +17,12 @@ struct auxiliar
 {
     char result[1000];
 };
-int search_variable(char* name,struct symbol_variables *table)
+int search_variable(char* name,char* type, struct symbol_variables *table)
 {
     int result=0;
     for(int i=0;i<1000;i++)
     {
-        if(strcmp(table[i].id_name,name)==0)
+        if(strcmp(table[i].id_name,name)==0 && strcmp(table[i].data_type,type)==0)
         {
             result=1;
         }
@@ -46,7 +46,7 @@ int search_function(char* name, char* type, char* function_parameters, struct sy
 }
 int add_variable(char* name, char* type, struct symbol_variables *table, int index)
 {
-    if(search_variable(name,table)==1) return 0;
+    if(search_variable(name,type,table)==1) return 0;
     
     strcpy(table[index].id_name,name);
     strcpy(table[index].data_type,type);

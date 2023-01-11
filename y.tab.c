@@ -583,10 +583,10 @@ static const yytype_uint8 yyrline[] =
 {
        0,    38,    38,    40,    41,    43,    44,    46,    56,    64,
       74,    82,    92,   103,   104,   106,   107,   109,   112,   119,
-     131,   132,   136,   137,   138,   139,   140,   141,   142,   143,
-     144,   145,   146,   149,   150,   151,   152,   154,   155,   156,
-     157,   158,   159,   160,   161,   162,   163,   164,   165,   166,
-     167,   168,   169,   170,   171,   172,   173
+     131,   132,   136,   137,   140,   141,   142,   143,   144,   145,
+     146,   147,   148,   151,   152,   153,   154,   156,   157,   158,
+     159,   160,   161,   162,   163,   164,   165,   166,   167,   168,
+     169,   170,   171,   172,   173,   174,   175
 };
 #endif
 
@@ -1502,7 +1502,7 @@ yyreduce:
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila exista deja\n");
+                         else yyerror("Variabila exista deja");
                     }
 #line 1508 "y.tab.c"
     break;
@@ -1514,7 +1514,7 @@ yyreduce:
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila exista deja\n");
+                         else yyerror("Variabila exista deja");
                     }
 #line 1520 "y.tab.c"
     break;
@@ -1526,7 +1526,7 @@ yyreduce:
                          {
                               nr_variables++;
                          }
-                         else printf("Variabila %s exista deja. Linia: %d\n", (yyvsp[-2].string_value),yylineno);
+                         else yyerror("Variabila %s exista deja. Linia: %d\n", (yyvsp[-2].string_value),yylineno);
                     }
 #line 1532 "y.tab.c"
     break;
@@ -1592,8 +1592,15 @@ yyreduce:
 #line 1593 "y.tab.c"
     break;
 
+  case 23:
+#line 138 "limbaj.y"
+         {
+         }
+#line 1600 "y.tab.c"
+    break;
 
-#line 1597 "y.tab.c"
+
+#line 1604 "y.tab.c"
 
       default: break;
     }
@@ -1825,7 +1832,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 176 "limbaj.y"
+#line 178 "limbaj.y"
 
 int yyerror(char * s){
 printf("eroare: %s la linia:%d\n",s,yylineno);
