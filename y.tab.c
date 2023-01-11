@@ -75,9 +75,13 @@ extern FILE* yyin;
 extern char* yytext;
 extern int yylineno;
 struct symbol_variables symbol_table[1000];
-int nr_variabile=0;
+int nr_variables=0;
+struct symbol_functions symbol_table_functions[1000];
+int nr_functions=0;
+int nr_functions_with_parameters=0;
+struct auxiliar parameters_for_function [20];
 
-#line 81 "y.tab.c"
+#line 85 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -195,11 +199,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 11 "limbaj.y"
+#line 15 "limbaj.y"
 
      char* string_value;
 
-#line 203 "y.tab.c"
+#line 207 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -577,12 +581,12 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    34,    34,    36,    37,    39,    40,    42,    52,    60,
-      70,    71,    72,    75,    76,    78,    79,    81,    84,    85,
-      91,    92,    96,    97,    98,    99,   100,   101,   102,   103,
-     104,   105,   106,   109,   110,   111,   112,   114,   115,   116,
-     117,   118,   119,   120,   121,   122,   123,   124,   125,   126,
-     127,   128,   129,   130,   131,   132,   133
+       0,    38,    38,    40,    41,    43,    44,    46,    56,    64,
+      74,    82,    92,   103,   104,   106,   107,   109,   112,   119,
+     131,   132,   136,   137,   138,   139,   140,   141,   142,   143,
+     144,   145,   146,   149,   150,   151,   152,   154,   155,   156,
+     157,   158,   159,   160,   161,   162,   163,   164,   165,   166,
+     167,   168,   169,   170,   171,   172,   173
 };
 #endif
 
@@ -1486,49 +1490,110 @@ yyreduce:
   switch (yyn)
     {
   case 2:
-#line 34 "limbaj.y"
+#line 38 "limbaj.y"
                                                                             {printf("program corect sintactic\n");}
-#line 1492 "y.tab.c"
+#line 1496 "y.tab.c"
     break;
 
   case 7:
-#line 44 "limbaj.y"
+#line 48 "limbaj.y"
                    {
-                          if (add_variable((yyvsp[0].string_value), (yyvsp[-1].string_value), symbol_table, nr_variabile)==1)
+                          if (add_variable((yyvsp[0].string_value), (yyvsp[-1].string_value), symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila exista deja\n");
                     }
-#line 1504 "y.tab.c"
+#line 1508 "y.tab.c"
     break;
 
   case 8:
-#line 53 "limbaj.y"
+#line 57 "limbaj.y"
                     {                  
-                          if (add_variable((yyvsp[-1].string_value), (yyvsp[-2].string_value), symbol_table, nr_variabile)==1)
+                          if (add_variable((yyvsp[-1].string_value), (yyvsp[-2].string_value), symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila exista deja\n");
                     }
-#line 1516 "y.tab.c"
+#line 1520 "y.tab.c"
     break;
 
   case 9:
-#line 61 "limbaj.y"
+#line 65 "limbaj.y"
                     {
-                          if (add_variable((yyvsp[-2].string_value), (yyvsp[-3].string_value), symbol_table, nr_variabile)==1)
+                          if (add_variable((yyvsp[-2].string_value), (yyvsp[-3].string_value), symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila %s exista deja. Linia: %d\n", (yyvsp[-2].string_value),yylineno);
                     }
-#line 1528 "y.tab.c"
+#line 1532 "y.tab.c"
+    break;
+
+  case 10:
+#line 75 "limbaj.y"
+                    {
+                         if(add_function((yyvsp[-2].string_value),(yyvsp[-3].string_value),NULL,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", (yyvsp[-2].string_value),yylineno);
+                    }
+#line 1544 "y.tab.c"
+    break;
+
+  case 11:
+#line 83 "limbaj.y"
+                    {
+
+                         if(add_function((yyvsp[-3].string_value),(yyvsp[-4].string_value), parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                              nr_functions_with_parameters++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", (yyvsp[-3].string_value),yylineno);
+                    }
+#line 1558 "y.tab.c"
+    break;
+
+  case 12:
+#line 93 "limbaj.y"
+                    {
+                         if(add_function((yyvsp[-10].string_value),(yyvsp[-11].string_value),parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                              nr_functions_with_parameters++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", (yyvsp[-10].string_value),yylineno);
+                    }
+#line 1571 "y.tab.c"
+    break;
+
+  case 18:
+#line 113 "limbaj.y"
+               {
+                    strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[-1].string_value));
+                    strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+                    strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[0].string_value));
+                    strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+               }
+#line 1582 "y.tab.c"
+    break;
+
+  case 19:
+#line 120 "limbaj.y"
+            {
+               strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[-1].string_value));
+               strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+               strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[0].string_value));
+               strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+            }
+#line 1593 "y.tab.c"
     break;
 
 
-#line 1532 "y.tab.c"
+#line 1597 "y.tab.c"
 
       default: break;
     }
@@ -1760,7 +1825,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 136 "limbaj.y"
+#line 176 "limbaj.y"
 
 int yyerror(char * s){
 printf("eroare: %s la linia:%d\n",s,yylineno);
@@ -1771,13 +1836,20 @@ int main(int argc, char** argv){
      yyin=fopen(argv[1],"r");
      yyparse();
      FILE* fp=fopen("symbol_table.txt","w");
-     for(int i=0; i<nr_variabile;i++)
+     for(int i=0; i<nr_variables;i++)
      {
           fprintf(fp,"Nume: %s\n",symbol_table[i].id_name);
           fprintf(fp,"Tip: %s\n", symbol_table[i].data_type);
           fprintf(fp,"\n");
      }
-
-
+     fclose(fp);
+     fp=fopen("symbol_table_functions.txt","w");
+     for(int i=0;i<nr_functions_with_parameters;i++)
+     {    
+          fprintf(fp,"%s\t",symbol_table_functions[i].return_type);
+          fprintf(fp,"%s\n",symbol_table_functions[i].id_name);    
+          fprintf(fp,"Parametrii: %s\t",parameters_for_function[i].result);
+          fprintf(fp,"\n");
+     }
      
 } 

@@ -6,7 +6,11 @@ extern FILE* yyin;
 extern char* yytext;
 extern int yylineno;
 struct symbol_variables symbol_table[1000];
-int nr_variabile=0;
+int nr_variables=0;
+struct symbol_functions symbol_table_functions[1000];
+int nr_functions=0;
+int nr_functions_with_parameters=0;
+struct auxiliar parameters_for_function [20];
 %}
 %union {
      char* string_value;
@@ -26,7 +30,7 @@ int nr_variabile=0;
 %left EQ NEQ
 %left NOT
 
-
+%type<string_value>lista_param
  
 
 %start progr
@@ -42,34 +46,58 @@ function_declarations : function_declaration ';'
 variable_declaration : TIP ID 
 
                    {
-                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                          if (add_variable($2, $1, symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila exista deja\n");
                     } 
                
                     | TIP ID ARRAY  
                     {                  
-                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                          if (add_variable($2, $1, symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila exista deja\n");
                     } 
                     | TIP ID ASSIGN expresie
                     {
-                          if (add_variable($2, $1, symbol_table, nr_variabile)==1)
+                          if (add_variable($2, $1, symbol_table, nr_variables)==1)
                          {
-                              nr_variabile++;
+                              nr_variables++;
                          }
                          else printf("Variabila %s exista deja. Linia: %d\n", $2,yylineno);
                     } 
                     ;
 
 function_declaration : TIP ID '(' ')'
+                    {
+                         if(add_function($2,$1,NULL,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", $2,yylineno);
+                    }
                     | TIP ID '(' lista_param ')'
+                    {
+
+                         if(add_function($2,$1, parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                              nr_functions_with_parameters++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", $2,yylineno);
+                    }
                     | TIP ID '(' lista_param ')'  '{'variable_declarations list  RETURN expresie ';' '}'
+                    {
+                         if(add_function($2,$1,parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
+                         {
+                              nr_functions++;
+                              nr_functions_with_parameters++;
+                         } 
+                         else printf("Functia %s exista deja. Linia: %d\n", $2,yylineno);
+                    }                    
                     ;
 
 class_declarations : class_declaration ';'
@@ -82,7 +110,19 @@ main : MAIN '{'  '}'
      ;
 
 lista_param : lista_param ','  TIP ID
+               {
+                    strcat(parameters_for_function[nr_functions_with_parameters].result,$3);
+                    strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+                    strcat(parameters_for_function[nr_functions_with_parameters].result,$4);
+                    strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+               }
             | TIP ID
+            {
+               strcat(parameters_for_function[nr_functions_with_parameters].result,$1);
+               strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+               strcat(parameters_for_function[nr_functions_with_parameters].result,$2);
+               strcat(parameters_for_function[nr_functions_with_parameters].result," ");
+            }
             ;            
       
 
@@ -143,13 +183,20 @@ int main(int argc, char** argv){
      yyin=fopen(argv[1],"r");
      yyparse();
      FILE* fp=fopen("symbol_table.txt","w");
-     for(int i=0; i<nr_variabile;i++)
+     for(int i=0; i<nr_variables;i++)
      {
           fprintf(fp,"Nume: %s\n",symbol_table[i].id_name);
           fprintf(fp,"Tip: %s\n", symbol_table[i].data_type);
           fprintf(fp,"\n");
      }
-
-
+     fclose(fp);
+     fp=fopen("symbol_table_functions.txt","w");
+     for(int i=0;i<nr_functions_with_parameters;i++)
+     {    
+          fprintf(fp,"%s\t",symbol_table_functions[i].return_type);
+          fprintf(fp,"%s\n",symbol_table_functions[i].id_name);    
+          fprintf(fp,"Parametrii: %s\t",parameters_for_function[i].result);
+          fprintf(fp,"\n");
+     }
      
 } 
