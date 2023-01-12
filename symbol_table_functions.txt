@@ -1,8 +1,0 @@
-int	@testFunction
-Parametrii: int @x float @z 	
-int	@testFunction
-Parametrii: int @x int @z 	
-int	@test
-Parametrii: int @param1 int @param2 float @f 	
-int	@function
-Parametrii: int @x int @y int @abc 	

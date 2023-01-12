@@ -51,79 +51,82 @@ extern int yydebug;
   {
     ID = 258,
     TIP = 259,
-    CONSTANT = 260,
-    RETURN = 261,
-    ASSIGN = 262,
-    NR = 263,
-    CLASS = 264,
-    FLT = 265,
-    IF = 266,
-    BOOL = 267,
-    ELSE = 268,
-    WHILE = 269,
-    TRUE = 270,
-    FALSE = 271,
-    CHARACTER = 272,
-    STR = 273,
-    ARRAY = 274,
-    MAIN = 275,
-    ADD = 276,
-    SUBTRACT = 277,
-    MULTIPLY = 278,
-    DIVIDE = 279,
-    AND = 280,
-    OR = 281,
-    GT = 282,
-    GE = 283,
-    LT = 284,
-    LE = 285,
-    EQ = 286,
-    NEQ = 287,
-    NOT = 288
+    CHARACTER = 260,
+    STR = 261,
+    NR = 262,
+    FLT = 263,
+    CONSTANT = 264,
+    RETURN = 265,
+    ASSIGN = 266,
+    CLASS = 267,
+    IF = 268,
+    BOOL = 269,
+    FOR = 270,
+    ELSE = 271,
+    WHILE = 272,
+    TRUE = 273,
+    FALSE = 274,
+    ARRAY = 275,
+    MAIN = 276,
+    ADD = 277,
+    SUBTRACT = 278,
+    MULTIPLY = 279,
+    DIVIDE = 280,
+    AND = 281,
+    OR = 282,
+    GT = 283,
+    GE = 284,
+    LT = 285,
+    LE = 286,
+    EQ = 287,
+    NEQ = 288,
+    NOT = 289
   };
 #endif
 /* Tokens.  */
 #define ID 258
 #define TIP 259
-#define CONSTANT 260
-#define RETURN 261
-#define ASSIGN 262
-#define NR 263
-#define CLASS 264
-#define FLT 265
-#define IF 266
-#define BOOL 267
-#define ELSE 268
-#define WHILE 269
-#define TRUE 270
-#define FALSE 271
-#define CHARACTER 272
-#define STR 273
-#define ARRAY 274
-#define MAIN 275
-#define ADD 276
-#define SUBTRACT 277
-#define MULTIPLY 278
-#define DIVIDE 279
-#define AND 280
-#define OR 281
-#define GT 282
-#define GE 283
-#define LT 284
-#define LE 285
-#define EQ 286
-#define NEQ 287
-#define NOT 288
+#define CHARACTER 260
+#define STR 261
+#define NR 262
+#define FLT 263
+#define CONSTANT 264
+#define RETURN 265
+#define ASSIGN 266
+#define CLASS 267
+#define IF 268
+#define BOOL 269
+#define FOR 270
+#define ELSE 271
+#define WHILE 272
+#define TRUE 273
+#define FALSE 274
+#define ARRAY 275
+#define MAIN 276
+#define ADD 277
+#define SUBTRACT 278
+#define MULTIPLY 279
+#define DIVIDE 280
+#define AND 281
+#define OR 282
+#define GT 283
+#define GE 284
+#define LT 285
+#define LE 286
+#define EQ 287
+#define NEQ 288
+#define NOT 289
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 15 "limbaj.y"
+#line 30 "limbaj.y"
 
      char* string_value;
+     struct node* expr;
 
-#line 127 "y.tab.h"
+#line 130 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

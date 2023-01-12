@@ -1,42 +1,6 @@
 Nume: @x
-Tip: float
-
-Nume: @x
-Tip: int
-
-Nume: @abc543
 Tip: int
 
 Nume: @x1
 Tip: int
-
-Nume: @x2
-Tip: int
-
-Nume: @y
-Tip: int
-
-Nume: @arr
-Tip: int
-
-Nume: @f
-Tip: float
-
-Nume: @f1
-Tip: float
-
-Nume: @abc
-Tip: int
-
-Nume: @abd
-Tip: int
-
-Nume: @abf
-Tip: int
-
-Nume: @submesaj
-Tip: int
-
-Nume: @number
-Tip: float
 

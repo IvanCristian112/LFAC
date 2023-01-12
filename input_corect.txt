@@ -1,0 +1,84 @@
+float @x;
+int @x;
+int @abc543;
+int @x1:=4;
+int @x2;
+int @y;
+int @arr[10];
+
+float @f:=20.0;
+float @f1;
+string @string;
+char @character;
+
+int @testFunction(int @x, float @z) {
+  int @abc:="abc";
+  @abc:="abcd";
+  return 1;
+};
+int @testFunction(int @x, int @z) {
+  int @abd:="abc";
+  @abd:="abcd";
+  return 1;
+};
+
+int @test(int @param1, int @param2, float @f) {
+   int @abf:="abc";
+  @abf:="abcd";
+  return 1;
+};
+
+
+class @C1 {
+    int @submesaj :=5;
+    int @function();
+};
+
+class @C2 {
+    float @number:=.69;
+    int @function(int @x, int @y, int @abc);
+};
+
+main ()
+{   
+    
+    int @primaVariabila;
+    int @adouaVariabila;
+    int @vector[100];
+    int @afsdasdf;
+    @vector[54]:=(@primaVariabila*@vector[99])/(5*@adouaVariabila);
+    @f1:=.456;
+    @f1:=89.2;
+    @string:="alabalaportocala";
+    @character:="A";
+    @f:=@f*@f1*(2*@f1-@f);
+    @C2.@number:=3.75;
+    if (@x1 + @test(@x1,@x2,@f) < 5 + @x1 AND ((@x > 2 OR @x1 < 4+@x2) OR @x == 2)) 
+    {
+        @f:=3.55;
+    };
+    for ( int @i; 5>4; @i:=3;)
+    {
+      @i:=(@i*@i+54)/@i;
+    };
+    while((5>4) AND (4<3))
+    {
+      @C1.@submesaj:=@submesaj + 3;
+    };
+    @x := 10;
+    @x1 := 20;
+    @x2 := 30;
+    @y := 100;
+    if (@x1 + @test(@x1,@x2,@f) < 5 + @x1 AND ((@x > 2 OR @x1 < 4+@x2) OR @x == 2)) 
+    {
+        @x:=2;
+        @character:="c";
+    };
+    @x := @test(@test(@x1,3,@f)+2, @y+4) + (30 - @y * @arr[2]) - 10;
+    @x1 := @x*100 + 5 * 100 + @arr[2];
+    return 5;
+}
+
+
+
+

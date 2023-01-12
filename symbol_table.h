@@ -29,6 +29,31 @@ int search_variable(char* name,char* type, struct symbol_variables *table)
     }
     return result;
 }
+int search_variable_name(char* name, struct symbol_variables *table)
+{
+    int result=0;
+    for(int i=0;i<1000;i++)
+    {
+        if(strcmp(table[i].id_name,name)==0 )
+        {
+            result=1;
+        }
+    }
+    return result;
+}
+int search_function_name(char* name, struct symbol_functions *table)
+{
+    int result=0;
+    for(int i=0;i<1000;i++)
+    {
+        if(strcmp(table[i].id_name,name)==0 )
+        {
+            result=1;
+        }
+    }
+    return result;
+}
+
 int search_function(char* name, char* type, char* function_parameters, struct symbol_functions * table)
 /* ca doua functii sa fie identice trebuie ca signatura lor sa fie aceeasi*/
 

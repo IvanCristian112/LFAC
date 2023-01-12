@@ -27,6 +27,7 @@
 "if"    {return IF;}
 "else"  {return ELSE;}
 "while" {return WHILE;}
+"for"   {return FOR;}
 "true"  {return TRUE;}
 "false" {return FALSE;}
 \[[1-9][0-9]*\] {return ARRAY;}

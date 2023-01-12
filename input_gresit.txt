@@ -1,0 +1,35 @@
+int @x := 23;
+int @x1;
+int @x1;
+int @x2;
+float @f1 := 50.0;
+string @s:= "ANA";
+int @testFunction(int @x, float @z) {
+   int @abc;
+   @abc:="abc";
+   return 1;
+};
+int @testFunction(int @x, float @z);
+int @testFunction(float @x, float @z);
+int @test(int @param);
+int @abc();
+class @C1;
+main ()
+{
+    int @parameter;
+    @x3:= @x + 2;
+	@f1:= @x + @x2;
+	@f1:= @test (5) + @x;
+    @x:= @test(5) + @f1; 
+	@x:= @s + @f1;
+    @test(@f1);
+	@test(5,@f1);
+
+	@test(5+@f1);
+    return 1;
+
+}
+
+
+
+
