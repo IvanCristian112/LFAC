@@ -362,5 +362,6 @@ int main(int argc, char** argv){
           fprintf(fp,"Parametrii: %s\t",parameters_for_function[i].result);
           fprintf(fp,"\n");
      }
+     fclose(fp);
      
 } 

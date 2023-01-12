@@ -599,12 +599,12 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,    59,    59,    61,    62,    64,    65,    67,    78,    86,
-      96,   104,   114,   125,   126,   128,   129,   131,   134,   141,
-     153,   154,   158,   165,   172,   179,   186,   193,   200,   207,
-     208,   209,   210,   213,   214,   216,   217,   218,   219,   221,
-     222,   226,   227,   231,   235,   239,   240,   244,   248,   253,
-     254,   255,   256,   257,   258,   259,   260,   261,   262,   264
+       0,    59,    59,    61,    62,    64,    65,    67,    77,    85,
+      95,   103,   113,   124,   125,   127,   128,   130,   133,   140,
+     152,   153,   157,   164,   171,   178,   185,   192,   199,   206,
+     207,   208,   209,   212,   213,   215,   216,   217,   218,   220,
+     221,   225,   226,   230,   234,   238,   239,   243,   247,   252,
+     253,   254,   255,   256,   257,   258,   259,   260,   261,   263
 };
 #endif
 
@@ -1522,13 +1522,12 @@ yyreduce:
                               nr_variables++;
                          }
                          else yyerror("Variabila exista deja");
-                         YYABORT;
                     }
-#line 1528 "y.tab.c"
+#line 1527 "y.tab.c"
     break;
 
   case 8:
-#line 79 "limbaj.y"
+#line 78 "limbaj.y"
                     {                  
                           if (add_variable((yyvsp[-1].string_value), (yyvsp[-2].string_value), symbol_table, nr_variables)==1)
                          {
@@ -1536,11 +1535,11 @@ yyreduce:
                          }
                          else yyerror("Variabila exista deja");
                     }
-#line 1540 "y.tab.c"
+#line 1539 "y.tab.c"
     break;
 
   case 9:
-#line 87 "limbaj.y"
+#line 86 "limbaj.y"
                     {
                           if (add_variable((yyvsp[-2].string_value), (yyvsp[-3].string_value), symbol_table, nr_variables)==1)
                          {
@@ -1548,11 +1547,11 @@ yyreduce:
                          }
                          else yyerror("Variabila %s exista deja");
                     }
-#line 1552 "y.tab.c"
+#line 1551 "y.tab.c"
     break;
 
   case 10:
-#line 97 "limbaj.y"
+#line 96 "limbaj.y"
                     {
                          if(add_function((yyvsp[-2].string_value),(yyvsp[-3].string_value),NULL,symbol_table_functions,nr_functions)==1)
                          {
@@ -1560,11 +1559,11 @@ yyreduce:
                          } 
                          else yyerror("Functia  exista deja");
                     }
-#line 1564 "y.tab.c"
+#line 1563 "y.tab.c"
     break;
 
   case 11:
-#line 105 "limbaj.y"
+#line 104 "limbaj.y"
                     {
 
                          if(add_function((yyvsp[-3].string_value),(yyvsp[-4].string_value), parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
@@ -1574,11 +1573,11 @@ yyreduce:
                          } 
                          else yyerror("Functia  exista deja");
                     }
-#line 1578 "y.tab.c"
+#line 1577 "y.tab.c"
     break;
 
   case 12:
-#line 115 "limbaj.y"
+#line 114 "limbaj.y"
                     {
                          if(add_function((yyvsp[-10].string_value),(yyvsp[-11].string_value),parameters_for_function[nr_functions_with_parameters].result,symbol_table_functions,nr_functions)==1)
                          {
@@ -1587,184 +1586,184 @@ yyreduce:
                          } 
                          else yyerror("Functia  exista deja");
                     }
-#line 1591 "y.tab.c"
+#line 1590 "y.tab.c"
     break;
 
   case 18:
-#line 135 "limbaj.y"
+#line 134 "limbaj.y"
                {
                     strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[-1].string_value));
                     strcat(parameters_for_function[nr_functions_with_parameters].result," ");
                     strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[0].string_value));
                     strcat(parameters_for_function[nr_functions_with_parameters].result," ");
                }
-#line 1602 "y.tab.c"
+#line 1601 "y.tab.c"
     break;
 
   case 19:
-#line 142 "limbaj.y"
+#line 141 "limbaj.y"
             {
                strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[-1].string_value));
                strcat(parameters_for_function[nr_functions_with_parameters].result," ");
                strcat(parameters_for_function[nr_functions_with_parameters].result,(yyvsp[0].string_value));
                strcat(parameters_for_function[nr_functions_with_parameters].result," ");
             }
-#line 1613 "y.tab.c"
+#line 1612 "y.tab.c"
     break;
 
   case 22:
-#line 159 "limbaj.y"
+#line 158 "limbaj.y"
          {
           if(search_variable_name((yyvsp[-2].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1624 "y.tab.c"
+#line 1623 "y.tab.c"
     break;
 
   case 23:
-#line 166 "limbaj.y"
+#line 165 "limbaj.y"
          {
           if(search_variable_name((yyvsp[-3].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1635 "y.tab.c"
+#line 1634 "y.tab.c"
     break;
 
   case 24:
-#line 173 "limbaj.y"
+#line 172 "limbaj.y"
          { 
           if(search_variable_name((yyvsp[-4].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1646 "y.tab.c"
+#line 1645 "y.tab.c"
     break;
 
   case 25:
-#line 180 "limbaj.y"
+#line 179 "limbaj.y"
          { 
           if(search_variable_name((yyvsp[-5].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1657 "y.tab.c"
+#line 1656 "y.tab.c"
     break;
 
   case 26:
-#line 187 "limbaj.y"
+#line 186 "limbaj.y"
          { 
           if(search_variable_name((yyvsp[-2].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1668 "y.tab.c"
+#line 1667 "y.tab.c"
     break;
 
   case 27:
-#line 194 "limbaj.y"
+#line 193 "limbaj.y"
          { 
           if(search_variable_name((yyvsp[-4].string_value),symbol_table)==0)
           {
                yyerror("Variabila apelata nu exista");
           }
          }
-#line 1679 "y.tab.c"
+#line 1678 "y.tab.c"
     break;
 
   case 28:
-#line 201 "limbaj.y"
+#line 200 "limbaj.y"
          {
           if(search_function_name((yyvsp[-3].string_value),symbol_table_functions)==0)
           {
                yyerror("Functia apelata nu exista");
           }
          }
-#line 1690 "y.tab.c"
+#line 1689 "y.tab.c"
     break;
 
   case 39:
-#line 221 "limbaj.y"
+#line 220 "limbaj.y"
                     {(yyval.expr)=buildAST((yyvsp[0].string_value),"NUMBER",NULL,NULL,(yyval.expr)); (yyval.expr)->value=atoi((yyvsp[0].string_value));}
-#line 1696 "y.tab.c"
+#line 1695 "y.tab.c"
     break;
 
   case 40:
-#line 223 "limbaj.y"
+#line 222 "limbaj.y"
           {
                (yyval.expr)=buildAST("+","PLUS",(yyvsp[-2].expr), (yyvsp[0].expr),(yyval.expr));
           }
-#line 1704 "y.tab.c"
+#line 1703 "y.tab.c"
     break;
 
   case 41:
-#line 226 "limbaj.y"
+#line 225 "limbaj.y"
                {(yyval.expr)=buildAST((yyvsp[0].string_value),"FLOAT",NULL,NULL,(yyval.expr)); (yyval.expr)->value=atoi((yyvsp[0].string_value));}
-#line 1710 "y.tab.c"
+#line 1709 "y.tab.c"
     break;
 
   case 42:
-#line 228 "limbaj.y"
+#line 227 "limbaj.y"
           {
                (yyval.expr)=buildAST("-","MINUS",(yyvsp[-2].expr),(yyvsp[0].expr),(yyval.expr));
           }
-#line 1718 "y.tab.c"
+#line 1717 "y.tab.c"
     break;
 
   case 43:
-#line 232 "limbaj.y"
+#line 231 "limbaj.y"
           {
                (yyval.expr)=buildAST("*","PRODUCT",(yyvsp[-2].expr),(yyvsp[0].expr),(yyval.expr));
           }
-#line 1726 "y.tab.c"
+#line 1725 "y.tab.c"
     break;
 
   case 44:
-#line 236 "limbaj.y"
+#line 235 "limbaj.y"
           {
                (yyval.expr)=buildAST("*","DIVIDE",(yyvsp[-2].expr),(yyvsp[0].expr),(yyval.expr));
           }
-#line 1734 "y.tab.c"
+#line 1733 "y.tab.c"
     break;
 
   case 45:
-#line 239 "limbaj.y"
+#line 238 "limbaj.y"
                                  {(yyval.expr)=(yyvsp[-1].expr);}
-#line 1740 "y.tab.c"
+#line 1739 "y.tab.c"
     break;
 
   case 46:
-#line 241 "limbaj.y"
+#line 240 "limbaj.y"
           {
                (yyval.expr)=buildAST((yyvsp[0].string_value), "ID", NULL, NULL, (yyval.expr));
           }
-#line 1748 "y.tab.c"
+#line 1747 "y.tab.c"
     break;
 
   case 47:
-#line 245 "limbaj.y"
+#line 244 "limbaj.y"
           {
                (yyval.expr)=buildAST((yyvsp[-1].string_value), "ID", NULL, NULL, (yyval.expr));
           }
-#line 1756 "y.tab.c"
+#line 1755 "y.tab.c"
     break;
 
   case 48:
-#line 249 "limbaj.y"
+#line 248 "limbaj.y"
           {
 
           }
-#line 1764 "y.tab.c"
+#line 1763 "y.tab.c"
     break;
 
 
-#line 1768 "y.tab.c"
+#line 1767 "y.tab.c"
 
       default: break;
     }
@@ -1996,7 +1995,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 265 "limbaj.y"
+#line 264 "limbaj.y"
 
 int yyerror(char * s){
 printf("eroare: %s la linia:%d\n",s,yylineno);
@@ -2098,5 +2097,6 @@ int main(int argc, char** argv){
           fprintf(fp,"Parametrii: %s\t",parameters_for_function[i].result);
           fprintf(fp,"\n");
      }
+     fclose(fp);
      
 } 

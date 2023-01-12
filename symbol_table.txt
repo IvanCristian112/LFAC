@@ -1,6 +1,63 @@
 Nume: @x
+Tip: float
+
+Nume: @x
+Tip: int
+
+Nume: @abc543
 Tip: int
 
 Nume: @x1
+Tip: int
+
+Nume: @x2
+Tip: int
+
+Nume: @y
+Tip: int
+
+Nume: @arr
+Tip: int
+
+Nume: @f
+Tip: float
+
+Nume: @f1
+Tip: float
+
+Nume: @string
+Tip: string
+
+Nume: @character
+Tip: char
+
+Nume: @abc
+Tip: int
+
+Nume: @abd
+Tip: int
+
+Nume: @abf
+Tip: int
+
+Nume: @submesaj
+Tip: int
+
+Nume: @number
+Tip: float
+
+Nume: @primaVariabila
+Tip: int
+
+Nume: @adouaVariabila
+Tip: int
+
+Nume: @vector
+Tip: int
+
+Nume: @afsdasdf
+Tip: int
+
+Nume: @i
 Tip: int
 
